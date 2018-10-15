@@ -1,0 +1,13 @@
+{
+  "User": {
+    "Id": 2919902,
+    "Username": "JCpacheco10",
+    "Name": "juan carlos pacheco",
+    "Email": "juank.pacheco92@gmail.com",
+    "AvatarUrl": "https://secure.gravatar.com/avatar/a40e1be3fa0a653453cfd3a5b1f5804f?s=80&d=identicon",
+    "PrivateToken": "e9b37da26f99453c0bbfd012e4d02f11fef431c38da656d537b9a3d6608216ee",
+    "Host": "https://gitlab.com",
+    "TwoFactorEnabled": false,
+    "ApiVersion": 3
+  }
+}

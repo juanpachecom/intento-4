@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Domiva.Models.Personal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Rut_personal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre_personal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido_perso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numero_telefonico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.afp1.nombre_afp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetRoles.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.centro_asistencial.nombre_centro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salud1.id_nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rut_personal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre_personal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido_perso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numero_telefonico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.afp1.nombre_afp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetRoles.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.centro_asistencial.nombre_centro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salud1.id_nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_personal }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_personal }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_personal })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Domiva.Models.turno_chofer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Choferes.Rut_chofer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.turno.nombre_turno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Choferes.Rut_chofer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.turno.nombre_turno)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_turno_chofer }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_turno_chofer }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_turno_chofer })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Domiva.Models.Solicitud_ambulancia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ambulancia.patente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Solicitudes.Coordenada)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ambulancia.patente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Solicitudes.Coordenada)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_asistencia }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_asistencia }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_asistencia })
+        </td>
+    </tr>
+}
+
+</table>

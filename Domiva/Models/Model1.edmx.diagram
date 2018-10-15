@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="67bcf97999694030bdab7e29e264ca69" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="DomivaModel.afp" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.Ambulancia" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.ambulancia_estado" Width="1.5" PointX="5.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.Ambulancia_tipo" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.AspNetUsers" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.categoria" Width="1.5" PointX="7.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.centro_asistencial" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.Chofer_ambulancia" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.Choferes" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.estado" Width="1.5" PointX="7.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.estado_ambulancia" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.insumos" Width="1.5" PointX="6" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.insumos_ambulancia" Width="1.5" PointX="8.25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.persona_centro" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.Personal" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.personal_ambulancia" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.personal_correo" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.Personas" Width="1.5" PointX="7.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.salud" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.Solicitud_ambulancia" Width="1.5" PointX="12.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.Solicitud_estado" Width="1.5" PointX="10.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.Solicitudes" Width="1.5" PointX="10" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.sysdiagrams" Width="1.5" PointX="11.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.turno" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.turno_chofer" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomivaModel.turno_personal" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DomivaModel.FK_Personal_afp" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Ambulancia_Ambulancia_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Ambulancia_centro_asistencial" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_ambulancia_estado_Ambulancia" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Chofer_ambulancia_Ambulancia" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_insumos_ambulancia_Ambulancia" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_personal_ambulancia_Ambulancia" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Solicitud_ambulancia_Ambulancia" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_ambulancia_estado_estado_ambulancia" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Personal_AspNetRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_personal_correo_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Solicitudes_categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Personal_centro_asistencial" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Chofer_ambulancia_Choferes" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_turno_chofer_Choferes" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Solicitudes_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_insumos_ambulancia_insumos" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_personal_ambulancia_Personal" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_personal_correo_Personal" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Personal_salud" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_turno_personal_Personal" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Solicitudes_Personas" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_Solicitud_ambulancia_Solicitudes" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_turno_chofer_turno" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.FK_turno_personal_turno" ManuallyRouted="false" />
+        <AssociationConnector Association="DomivaModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

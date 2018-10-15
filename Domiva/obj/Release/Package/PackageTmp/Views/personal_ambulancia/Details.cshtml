@@ -1,0 +1,34 @@
+﻿@model Domiva.Models.personal_ambulancia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>personal_ambulancia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ambulancia.patente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ambulancia.patente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personal.Rut_personal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personal.Rut_personal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_p_a }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

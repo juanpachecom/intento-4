@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DomivaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="afp">
+    <Key>
+      <PropertyRef Name="id_afp" />
+    </Key>
+    <Property Name="id_afp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_afp" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="2050" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK_Personal_afp" FromRole="afp" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Ambulancia">
+    <Key>
+      <PropertyRef Name="Id_ambulancia" />
+    </Key>
+    <Property Name="Id_ambulancia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_tipo" Type="Int32" />
+    <Property Name="patente" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="marca" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="modelo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="año" Type="Int32" />
+    <Property Name="numero_telefono" Type="Int32" />
+    <Property Name="id_centro" Type="Int32" />
+    <NavigationProperty Name="Ambulancia_tipo" Relationship="Self.FK_Ambulancia_Ambulancia_tipo" FromRole="Ambulancia" ToRole="Ambulancia_tipo" />
+    <NavigationProperty Name="centro_asistencial" Relationship="Self.FK_Ambulancia_centro_asistencial" FromRole="Ambulancia" ToRole="centro_asistencial" />
+    <NavigationProperty Name="ambulancia_estado" Relationship="Self.FK_ambulancia_estado_Ambulancia" FromRole="Ambulancia" ToRole="ambulancia_estado" />
+    <NavigationProperty Name="Chofer_ambulancia" Relationship="Self.FK_Chofer_ambulancia_Ambulancia" FromRole="Ambulancia" ToRole="Chofer_ambulancia" />
+    <NavigationProperty Name="insumos_ambulancia" Relationship="Self.FK_insumos_ambulancia_Ambulancia" FromRole="Ambulancia" ToRole="insumos_ambulancia" />
+    <NavigationProperty Name="personal_ambulancia" Relationship="Self.FK_personal_ambulancia_Ambulancia" FromRole="Ambulancia" ToRole="personal_ambulancia" />
+    <NavigationProperty Name="Solicitud_ambulancia" Relationship="Self.FK_Solicitud_ambulancia_Ambulancia" FromRole="Ambulancia" ToRole="Solicitud_ambulancia" />
+  </EntityType>
+  <EntityType Name="ambulancia_estado">
+    <Key>
+      <PropertyRef Name="id_estadoambulancia" />
+    </Key>
+    <Property Name="id_estadoambulancia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_ambulancia" Type="Int32" />
+    <Property Name="id_estado" Type="Int32" />
+    <NavigationProperty Name="Ambulancia" Relationship="Self.FK_ambulancia_estado_Ambulancia" FromRole="ambulancia_estado" ToRole="Ambulancia" />
+    <NavigationProperty Name="estado_ambulancia" Relationship="Self.FK_ambulancia_estado_estado_ambulancia" FromRole="ambulancia_estado" ToRole="estado_ambulancia" />
+  </EntityType>
+  <EntityType Name="Ambulancia_tipo">
+    <Key>
+      <PropertyRef Name="Id_tipo" />
+    </Key>
+    <Property Name="Id_tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ambulancia" Relationship="Self.FK_Ambulancia_Ambulancia_tipo" FromRole="Ambulancia_tipo" ToRole="Ambulancia" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK_Personal_AspNetRoles" FromRole="AspNetRoles" ToRole="Personal" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="personal_correo" Relationship="Self.FK_personal_correo_AspNetUsers" FromRole="AspNetUsers" ToRole="personal_correo" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="id_categoria" />
+    </Key>
+    <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion_categoria" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Solicitudes" Relationship="Self.FK_Solicitudes_categoria" FromRole="categoria" ToRole="Solicitudes" />
+  </EntityType>
+  <EntityType Name="centro_asistencial">
+    <Key>
+      <PropertyRef Name="id_centro" />
+    </Key>
+    <Property Name="id_centro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_centro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_centro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="coordenada_centro" Type="String" MaxLength="4048" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ambulancia" Relationship="Self.FK_Ambulancia_centro_asistencial" FromRole="centro_asistencial" ToRole="Ambulancia" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK_Personal_centro_asistencial" FromRole="centro_asistencial" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Chofer_ambulancia">
+    <Key>
+      <PropertyRef Name="id_chofe_amb" />
+    </Key>
+    <Property Name="id_chofe_amb" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_chofer" Type="Int32" />
+    <Property Name="id_ambulancia" Type="Int32" />
+    <NavigationProperty Name="Ambulancia" Relationship="Self.FK_Chofer_ambulancia_Ambulancia" FromRole="Chofer_ambulancia" ToRole="Ambulancia" />
+    <NavigationProperty Name="Choferes" Relationship="Self.FK_Chofer_ambulancia_Choferes" FromRole="Chofer_ambulancia" ToRole="Choferes" />
+  </EntityType>
+  <EntityType Name="Choferes">
+    <Key>
+      <PropertyRef Name="Id_chofer" />
+    </Key>
+    <Property Name="Id_chofer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rut_chofer" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Nombres_Chofer" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Apellido_Chofer" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Chofer_ambulancia" Relationship="Self.FK_Chofer_ambulancia_Choferes" FromRole="Choferes" ToRole="Chofer_ambulancia" />
+    <NavigationProperty Name="turno_chofer" Relationship="Self.FK_turno_chofer_Choferes" FromRole="Choferes" ToRole="turno_chofer" />
+  </EntityType>
+  <EntityType Name="estado">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Solicitudes" Relationship="Self.FK_Solicitudes_estado" FromRole="estado" ToRole="Solicitudes" />
+  </EntityType>
+  <EntityType Name="estado_ambulancia">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripsion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ambulancia_estado" Relationship="Self.FK_ambulancia_estado_estado_ambulancia" FromRole="estado_ambulancia" ToRole="ambulancia_estado" />
+  </EntityType>
+  <EntityType Name="insumos">
+    <Key>
+      <PropertyRef Name="Id_insumos" />
+    </Key>
+    <Property Name="Id_insumos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="insumos_ambulancia" Relationship="Self.FK_insumos_ambulancia_insumos" FromRole="insumos" ToRole="insumos_ambulancia" />
+  </EntityType>
+  <EntityType Name="insumos_ambulancia">
+    <Key>
+      <PropertyRef Name="id_insumo_ambulancia" />
+    </Key>
+    <Property Name="id_insumo_ambulancia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_insumos" Type="Int32" />
+    <Property Name="id_ambulancia" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Ambulancia" Relationship="Self.FK_insumos_ambulancia_Ambulancia" FromRole="insumos_ambulancia" ToRole="Ambulancia" />
+    <NavigationProperty Name="insumos" Relationship="Self.FK_insumos_ambulancia_insumos" FromRole="insumos_ambulancia" ToRole="insumos" />
+  </EntityType>
+  <EntityType Name="persona_centro">
+    <Key>
+      <PropertyRef Name="id_p_c" />
+    </Key>
+    <Property Name="id_p_c" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_persona" Type="Int32" />
+    <Property Name="id_centro" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="Id_personal" />
+    </Key>
+    <Property Name="Id_personal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rut_personal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_personal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido_perso" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="numero_telefonico" Type="Int32" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="afp" Type="Int32" />
+    <Property Name="salud" Type="Int32" />
+    <Property Name="id_rol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="id_centro" Type="Int32" />
+    <NavigationProperty Name="afp1" Relationship="Self.FK_Personal_afp" FromRole="Personal" ToRole="afp" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.FK_Personal_AspNetRoles" FromRole="Personal" ToRole="AspNetRoles" />
+    <NavigationProperty Name="centro_asistencial" Relationship="Self.FK_Personal_centro_asistencial" FromRole="Personal" ToRole="centro_asistencial" />
+    <NavigationProperty Name="personal_ambulancia" Relationship="Self.FK_personal_ambulancia_Personal" FromRole="Personal" ToRole="personal_ambulancia" />
+    <NavigationProperty Name="personal_correo" Relationship="Self.FK_personal_correo_Personal" FromRole="Personal" ToRole="personal_correo" />
+    <NavigationProperty Name="salud1" Relationship="Self.FK_Personal_salud" FromRole="Personal" ToRole="salud" />
+    <NavigationProperty Name="turno_personal" Relationship="Self.FK_turno_personal_Personal" FromRole="Personal" ToRole="turno_personal" />
+  </EntityType>
+  <EntityType Name="personal_ambulancia">
+    <Key>
+      <PropertyRef Name="id_p_a" />
+    </Key>
+    <Property Name="id_p_a" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_ambulancia" Type="Int32" />
+    <Property Name="id_personal" Type="Int32" />
+    <NavigationProperty Name="Ambulancia" Relationship="Self.FK_personal_ambulancia_Ambulancia" FromRole="personal_ambulancia" ToRole="Ambulancia" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK_personal_ambulancia_Personal" FromRole="personal_ambulancia" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="personal_correo">
+    <Key>
+      <PropertyRef Name="id_p_co" />
+    </Key>
+    <Property Name="id_p_co" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_personal" Type="Int32" />
+    <Property Name="id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_personal_correo_AspNetUsers" FromRole="personal_correo" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK_personal_correo_Personal" FromRole="personal_correo" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Personas">
+    <Key>
+      <PropertyRef Name="Id_personas" />
+    </Key>
+    <Property Name="Id_personas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rut" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="n_documento" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Nombres" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numero_telefono" Type="Int32" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_cuidad" Type="Int32" />
+    <NavigationProperty Name="Solicitudes" Relationship="Self.FK_Solicitudes_Personas" FromRole="Personas" ToRole="Solicitudes" />
+  </EntityType>
+  <EntityType Name="salud">
+    <Key>
+      <PropertyRef Name="id_salud" />
+    </Key>
+    <Property Name="id_salud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="2050" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK_Personal_salud" FromRole="salud" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Solicitud_ambulancia">
+    <Key>
+      <PropertyRef Name="id_asistencia" />
+    </Key>
+    <Property Name="id_asistencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_solicitud" Type="Int32" />
+    <Property Name="id_ambulancia" Type="Int32" />
+    <NavigationProperty Name="Ambulancia" Relationship="Self.FK_Solicitud_ambulancia_Ambulancia" FromRole="Solicitud_ambulancia" ToRole="Ambulancia" />
+    <NavigationProperty Name="Solicitudes" Relationship="Self.FK_Solicitud_ambulancia_Solicitudes" FromRole="Solicitud_ambulancia" ToRole="Solicitudes" />
+  </EntityType>
+  <EntityType Name="Solicitud_estado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_solicitud" Type="Int32" />
+    <Property Name="id_estado" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Solicitudes">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+    </Key>
+    <Property Name="id_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_personas" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="hora" Type="Time" Precision="7" />
+    <Property Name="id_categoria" Type="Int32" />
+    <Property Name="Coordenada" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="id_estado" Type="Int32" />
+    <NavigationProperty Name="categoria" Relationship="Self.FK_Solicitudes_categoria" FromRole="Solicitudes" ToRole="categoria" />
+    <NavigationProperty Name="estado" Relationship="Self.FK_Solicitudes_estado" FromRole="Solicitudes" ToRole="estado" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_Solicitudes_Personas" FromRole="Solicitudes" ToRole="Personas" />
+    <NavigationProperty Name="Solicitud_ambulancia" Relationship="Self.FK_Solicitud_ambulancia_Solicitudes" FromRole="Solicitudes" ToRole="Solicitud_ambulancia" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="turno">
+    <Key>
+      <PropertyRef Name="id_turno" />
+    </Key>
+    <Property Name="id_turno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Hora_entrada" Type="Time" Precision="7" />
+    <Property Name="Hora_salida" Type="Time" Precision="7" />
+    <NavigationProperty Name="turno_chofer" Relationship="Self.FK_turno_chofer_turno" FromRole="turno" ToRole="turno_chofer" />
+    <NavigationProperty Name="turno_personal" Relationship="Self.FK_turno_personal_turno" FromRole="turno" ToRole="turno_personal" />
+  </EntityType>
+  <EntityType Name="turno_chofer">
+    <Key>
+      <PropertyRef Name="id_turno_chofer" />
+    </Key>
+    <Property Name="id_turno_chofer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_turno" Type="Int32" />
+    <Property Name="id_chofer" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Choferes" Relationship="Self.FK_turno_chofer_Choferes" FromRole="turno_chofer" ToRole="Choferes" />
+    <NavigationProperty Name="turno" Relationship="Self.FK_turno_chofer_turno" FromRole="turno_chofer" ToRole="turno" />
+  </EntityType>
+  <EntityType Name="turno_personal">
+    <Key>
+      <PropertyRef Name="id_turno_personal" />
+    </Key>
+    <Property Name="id_turno_personal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_turno" Type="Int32" />
+    <Property Name="id_personal" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK_turno_personal_Personal" FromRole="turno_personal" ToRole="Personal" />
+    <NavigationProperty Name="turno" Relationship="Self.FK_turno_personal_turno" FromRole="turno_personal" ToRole="turno" />
+  </EntityType>
+  <Association Name="FK_Personal_afp">
+    <End Role="afp" Type="Self.afp" Multiplicity="0..1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="afp">
+        <PropertyRef Name="id_afp" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="afp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ambulancia_Ambulancia_tipo">
+    <End Role="Ambulancia_tipo" Type="Self.Ambulancia_tipo" Multiplicity="0..1" />
+    <End Role="Ambulancia" Type="Self.Ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ambulancia_tipo">
+        <PropertyRef Name="Id_tipo" />
+      </Principal>
+      <Dependent Role="Ambulancia">
+        <PropertyRef Name="id_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ambulancia_centro_asistencial">
+    <End Role="centro_asistencial" Type="Self.centro_asistencial" Multiplicity="0..1" />
+    <End Role="Ambulancia" Type="Self.Ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="centro_asistencial">
+        <PropertyRef Name="id_centro" />
+      </Principal>
+      <Dependent Role="Ambulancia">
+        <PropertyRef Name="id_centro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ambulancia_estado_Ambulancia">
+    <End Role="Ambulancia" Type="Self.Ambulancia" Multiplicity="0..1" />
+    <End Role="ambulancia_estado" Type="Self.ambulancia_estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ambulancia">
+        <PropertyRef Name="Id_ambulancia" />
+      </Principal>
+      <Dependent Role="ambulancia_estado">
+        <PropertyRef Name="id_ambulancia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chofer_ambulancia_Ambulancia">
+    <End Role="Ambulancia" Type="Self.Ambulancia" Multiplicity="0..1" />
+    <End Role="Chofer_ambulancia" Type="Self.Chofer_ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ambulancia">
+        <PropertyRef Name="Id_ambulancia" />
+      </Principal>
+      <Dependent Role="Chofer_ambulancia">
+        <PropertyRef Name="id_ambulancia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_insumos_ambulancia_Ambulancia">
+    <End Role="Ambulancia" Type="Self.Ambulancia" Multiplicity="0..1" />
+    <End Role="insumos_ambulancia" Type="Self.insumos_ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ambulancia">
+        <PropertyRef Name="Id_ambulancia" />
+      </Principal>
+      <Dependent Role="insumos_ambulancia">
+        <PropertyRef Name="id_ambulancia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personal_ambulancia_Ambulancia">
+    <End Role="Ambulancia" Type="Self.Ambulancia" Multiplicity="0..1" />
+    <End Role="personal_ambulancia" Type="Self.personal_ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ambulancia">
+        <PropertyRef Name="Id_ambulancia" />
+      </Principal>
+      <Dependent Role="personal_ambulancia">
+        <PropertyRef Name="id_ambulancia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solicitud_ambulancia_Ambulancia">
+    <End Role="Ambulancia" Type="Self.Ambulancia" Multiplicity="0..1" />
+    <End Role="Solicitud_ambulancia" Type="Self.Solicitud_ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ambulancia">
+        <PropertyRef Name="Id_ambulancia" />
+      </Principal>
+      <Dependent Role="Solicitud_ambulancia">
+        <PropertyRef Name="id_ambulancia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ambulancia_estado_estado_ambulancia">
+    <End Role="estado_ambulancia" Type="Self.estado_ambulancia" Multiplicity="0..1" />
+    <End Role="ambulancia_estado" Type="Self.ambulancia_estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado_ambulancia">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="ambulancia_estado">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_AspNetRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="0..1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personal_correo_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="personal_correo" Type="Self.personal_correo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="personal_correo">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solicitudes_categoria">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+    <End Role="Solicitudes" Type="Self.Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="id_categoria" />
+      </Principal>
+      <Dependent Role="Solicitudes">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_centro_asistencial">
+    <End Role="centro_asistencial" Type="Self.centro_asistencial" Multiplicity="0..1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="centro_asistencial">
+        <PropertyRef Name="id_centro" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="id_centro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chofer_ambulancia_Choferes">
+    <End Role="Choferes" Type="Self.Choferes" Multiplicity="0..1" />
+    <End Role="Chofer_ambulancia" Type="Self.Chofer_ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Choferes">
+        <PropertyRef Name="Id_chofer" />
+      </Principal>
+      <Dependent Role="Chofer_ambulancia">
+        <PropertyRef Name="id_chofer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_turno_chofer_Choferes">
+    <End Role="Choferes" Type="Self.Choferes" Multiplicity="0..1" />
+    <End Role="turno_chofer" Type="Self.turno_chofer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Choferes">
+        <PropertyRef Name="Id_chofer" />
+      </Principal>
+      <Dependent Role="turno_chofer">
+        <PropertyRef Name="id_chofer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solicitudes_estado">
+    <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
+    <End Role="Solicitudes" Type="Self.Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="Solicitudes">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_insumos_ambulancia_insumos">
+    <End Role="insumos" Type="Self.insumos" Multiplicity="0..1" />
+    <End Role="insumos_ambulancia" Type="Self.insumos_ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="insumos">
+        <PropertyRef Name="Id_insumos" />
+      </Principal>
+      <Dependent Role="insumos_ambulancia">
+        <PropertyRef Name="id_insumos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personal_ambulancia_Personal">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="0..1" />
+    <End Role="personal_ambulancia" Type="Self.personal_ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="Id_personal" />
+      </Principal>
+      <Dependent Role="personal_ambulancia">
+        <PropertyRef Name="id_personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personal_correo_Personal">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="0..1" />
+    <End Role="personal_correo" Type="Self.personal_correo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="Id_personal" />
+      </Principal>
+      <Dependent Role="personal_correo">
+        <PropertyRef Name="id_personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_salud">
+    <End Role="salud" Type="Self.salud" Multiplicity="0..1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salud">
+        <PropertyRef Name="id_salud" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="salud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_turno_personal_Personal">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="0..1" />
+    <End Role="turno_personal" Type="Self.turno_personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="Id_personal" />
+      </Principal>
+      <Dependent Role="turno_personal">
+        <PropertyRef Name="id_personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solicitudes_Personas">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Solicitudes" Type="Self.Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="Id_personas" />
+      </Principal>
+      <Dependent Role="Solicitudes">
+        <PropertyRef Name="Id_personas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solicitud_ambulancia_Solicitudes">
+    <End Role="Solicitudes" Type="Self.Solicitudes" Multiplicity="0..1" />
+    <End Role="Solicitud_ambulancia" Type="Self.Solicitud_ambulancia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solicitudes">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="Solicitud_ambulancia">
+        <PropertyRef Name="id_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_turno_chofer_turno">
+    <End Role="turno" Type="Self.turno" Multiplicity="0..1" />
+    <End Role="turno_chofer" Type="Self.turno_chofer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="turno">
+        <PropertyRef Name="id_turno" />
+      </Principal>
+      <Dependent Role="turno_chofer">
+        <PropertyRef Name="id_turno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_turno_personal_turno">
+    <End Role="turno" Type="Self.turno" Multiplicity="0..1" />
+    <End Role="turno_personal" Type="Self.turno_personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="turno">
+        <PropertyRef Name="id_turno" />
+      </Principal>
+      <Dependent Role="turno_personal">
+        <PropertyRef Name="id_turno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="DomivaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="afp" EntityType="Self.afp" />
+    <EntitySet Name="Ambulancia" EntityType="Self.Ambulancia" />
+    <EntitySet Name="ambulancia_estado" EntityType="Self.ambulancia_estado" />
+    <EntitySet Name="Ambulancia_tipo" EntityType="Self.Ambulancia_tipo" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="categoria" EntityType="Self.categoria" />
+    <EntitySet Name="centro_asistencial" EntityType="Self.centro_asistencial" />
+    <EntitySet Name="Chofer_ambulancia" EntityType="Self.Chofer_ambulancia" />
+    <EntitySet Name="Choferes" EntityType="Self.Choferes" />
+    <EntitySet Name="estado" EntityType="Self.estado" />
+    <EntitySet Name="estado_ambulancia" EntityType="Self.estado_ambulancia" />
+    <EntitySet Name="insumos" EntityType="Self.insumos" />
+    <EntitySet Name="insumos_ambulancia" EntityType="Self.insumos_ambulancia" />
+    <EntitySet Name="persona_centro" EntityType="Self.persona_centro" />
+    <EntitySet Name="Personal" EntityType="Self.Personal" />
+    <EntitySet Name="personal_ambulancia" EntityType="Self.personal_ambulancia" />
+    <EntitySet Name="personal_correo" EntityType="Self.personal_correo" />
+    <EntitySet Name="Personas" EntityType="Self.Personas" />
+    <EntitySet Name="salud" EntityType="Self.salud" />
+    <EntitySet Name="Solicitud_ambulancia" EntityType="Self.Solicitud_ambulancia" />
+    <EntitySet Name="Solicitud_estado" EntityType="Self.Solicitud_estado" />
+    <EntitySet Name="Solicitudes" EntityType="Self.Solicitudes" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="turno" EntityType="Self.turno" />
+    <EntitySet Name="turno_chofer" EntityType="Self.turno_chofer" />
+    <EntitySet Name="turno_personal" EntityType="Self.turno_personal" />
+    <AssociationSet Name="FK_Personal_afp" Association="Self.FK_Personal_afp">
+      <End Role="afp" EntitySet="afp" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ambulancia_Ambulancia_tipo" Association="Self.FK_Ambulancia_Ambulancia_tipo">
+      <End Role="Ambulancia_tipo" EntitySet="Ambulancia_tipo" />
+      <End Role="Ambulancia" EntitySet="Ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ambulancia_centro_asistencial" Association="Self.FK_Ambulancia_centro_asistencial">
+      <End Role="centro_asistencial" EntitySet="centro_asistencial" />
+      <End Role="Ambulancia" EntitySet="Ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ambulancia_estado_Ambulancia" Association="Self.FK_ambulancia_estado_Ambulancia">
+      <End Role="Ambulancia" EntitySet="Ambulancia" />
+      <End Role="ambulancia_estado" EntitySet="ambulancia_estado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chofer_ambulancia_Ambulancia" Association="Self.FK_Chofer_ambulancia_Ambulancia">
+      <End Role="Ambulancia" EntitySet="Ambulancia" />
+      <End Role="Chofer_ambulancia" EntitySet="Chofer_ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_insumos_ambulancia_Ambulancia" Association="Self.FK_insumos_ambulancia_Ambulancia">
+      <End Role="Ambulancia" EntitySet="Ambulancia" />
+      <End Role="insumos_ambulancia" EntitySet="insumos_ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personal_ambulancia_Ambulancia" Association="Self.FK_personal_ambulancia_Ambulancia">
+      <End Role="Ambulancia" EntitySet="Ambulancia" />
+      <End Role="personal_ambulancia" EntitySet="personal_ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solicitud_ambulancia_Ambulancia" Association="Self.FK_Solicitud_ambulancia_Ambulancia">
+      <End Role="Ambulancia" EntitySet="Ambulancia" />
+      <End Role="Solicitud_ambulancia" EntitySet="Solicitud_ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ambulancia_estado_estado_ambulancia" Association="Self.FK_ambulancia_estado_estado_ambulancia">
+      <End Role="estado_ambulancia" EntitySet="estado_ambulancia" />
+      <End Role="ambulancia_estado" EntitySet="ambulancia_estado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_AspNetRoles" Association="Self.FK_Personal_AspNetRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personal_correo_AspNetUsers" Association="Self.FK_personal_correo_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="personal_correo" EntitySet="personal_correo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solicitudes_categoria" Association="Self.FK_Solicitudes_categoria">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="Solicitudes" EntitySet="Solicitudes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_centro_asistencial" Association="Self.FK_Personal_centro_asistencial">
+      <End Role="centro_asistencial" EntitySet="centro_asistencial" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chofer_ambulancia_Choferes" Association="Self.FK_Chofer_ambulancia_Choferes">
+      <End Role="Choferes" EntitySet="Choferes" />
+      <End Role="Chofer_ambulancia" EntitySet="Chofer_ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_turno_chofer_Choferes" Association="Self.FK_turno_chofer_Choferes">
+      <End Role="Choferes" EntitySet="Choferes" />
+      <End Role="turno_chofer" EntitySet="turno_chofer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solicitudes_estado" Association="Self.FK_Solicitudes_estado">
+      <End Role="estado" EntitySet="estado" />
+      <End Role="Solicitudes" EntitySet="Solicitudes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_insumos_ambulancia_insumos" Association="Self.FK_insumos_ambulancia_insumos">
+      <End Role="insumos" EntitySet="insumos" />
+      <End Role="insumos_ambulancia" EntitySet="insumos_ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personal_ambulancia_Personal" Association="Self.FK_personal_ambulancia_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="personal_ambulancia" EntitySet="personal_ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personal_correo_Personal" Association="Self.FK_personal_correo_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="personal_correo" EntitySet="personal_correo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_salud" Association="Self.FK_Personal_salud">
+      <End Role="salud" EntitySet="salud" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_turno_personal_Personal" Association="Self.FK_turno_personal_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="turno_personal" EntitySet="turno_personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solicitudes_Personas" Association="Self.FK_Solicitudes_Personas">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Solicitudes" EntitySet="Solicitudes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solicitud_ambulancia_Solicitudes" Association="Self.FK_Solicitud_ambulancia_Solicitudes">
+      <End Role="Solicitudes" EntitySet="Solicitudes" />
+      <End Role="Solicitud_ambulancia" EntitySet="Solicitud_ambulancia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_turno_chofer_turno" Association="Self.FK_turno_chofer_turno">
+      <End Role="turno" EntitySet="turno" />
+      <End Role="turno_chofer" EntitySet="turno_chofer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_turno_personal_turno" Association="Self.FK_turno_personal_turno">
+      <End Role="turno" EntitySet="turno" />
+      <End Role="turno_personal" EntitySet="turno_personal" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

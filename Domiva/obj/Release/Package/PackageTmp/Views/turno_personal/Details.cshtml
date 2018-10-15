@@ -1,0 +1,42 @@
+﻿@model Domiva.Models.turno_personal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>turno_personal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personal.Rut_personal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personal.Rut_personal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.turno.nombre_turno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.turno.nombre_turno)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_turno_personal }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

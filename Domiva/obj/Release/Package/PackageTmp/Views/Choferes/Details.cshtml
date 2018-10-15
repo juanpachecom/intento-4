@@ -1,0 +1,42 @@
+﻿@model Domiva.Models.Choferes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Choferes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rut_chofer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rut_chofer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombres_Chofer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombres_Chofer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido_Chofer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido_Chofer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_chofer }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

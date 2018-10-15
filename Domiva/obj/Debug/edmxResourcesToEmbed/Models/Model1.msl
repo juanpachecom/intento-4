@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DomivaModelStoreContainer" CdmEntityContainer="DomivaEntities">
+    <EntitySetMapping Name="afp">
+      <EntityTypeMapping TypeName="DomivaModel.afp">
+        <MappingFragment StoreEntitySet="afp">
+          <ScalarProperty Name="id_afp" ColumnName="id_afp" />
+          <ScalarProperty Name="nombre_afp" ColumnName="nombre_afp" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ambulancia">
+      <EntityTypeMapping TypeName="DomivaModel.Ambulancia">
+        <MappingFragment StoreEntitySet="Ambulancia">
+          <ScalarProperty Name="Id_ambulancia" ColumnName="Id_ambulancia" />
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="patente" ColumnName="patente" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="numero_telefono" ColumnName="numero_telefono" />
+          <ScalarProperty Name="id_centro" ColumnName="id_centro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ambulancia_estado">
+      <EntityTypeMapping TypeName="DomivaModel.ambulancia_estado">
+        <MappingFragment StoreEntitySet="ambulancia_estado">
+          <ScalarProperty Name="id_estadoambulancia" ColumnName="id_estadoambulancia" />
+          <ScalarProperty Name="id_ambulancia" ColumnName="id_ambulancia" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ambulancia_tipo">
+      <EntityTypeMapping TypeName="DomivaModel.Ambulancia_tipo">
+        <MappingFragment StoreEntitySet="Ambulancia_tipo">
+          <ScalarProperty Name="Id_tipo" ColumnName="Id_tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="DomivaModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="DomivaModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="DomivaModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="DomivaModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categoria">
+      <EntityTypeMapping TypeName="DomivaModel.categoria">
+        <MappingFragment StoreEntitySet="categoria">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="nombre_categoria" ColumnName="nombre_categoria" />
+          <ScalarProperty Name="Descripcion_categoria" ColumnName="Descripcion_categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="centro_asistencial">
+      <EntityTypeMapping TypeName="DomivaModel.centro_asistencial">
+        <MappingFragment StoreEntitySet="centro_asistencial">
+          <ScalarProperty Name="id_centro" ColumnName="id_centro" />
+          <ScalarProperty Name="nombre_centro" ColumnName="nombre_centro" />
+          <ScalarProperty Name="direccion_centro" ColumnName="direccion_centro" />
+          <ScalarProperty Name="coordenada_centro" ColumnName="coordenada_centro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chofer_ambulancia">
+      <EntityTypeMapping TypeName="DomivaModel.Chofer_ambulancia">
+        <MappingFragment StoreEntitySet="Chofer_ambulancia">
+          <ScalarProperty Name="id_chofe_amb" ColumnName="id_chofe_amb" />
+          <ScalarProperty Name="id_chofer" ColumnName="id_chofer" />
+          <ScalarProperty Name="id_ambulancia" ColumnName="id_ambulancia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Choferes">
+      <EntityTypeMapping TypeName="DomivaModel.Choferes">
+        <MappingFragment StoreEntitySet="Choferes">
+          <ScalarProperty Name="Id_chofer" ColumnName="Id_chofer" />
+          <ScalarProperty Name="Rut_chofer" ColumnName="Rut_chofer" />
+          <ScalarProperty Name="Nombres_Chofer" ColumnName="Nombres_Chofer" />
+          <ScalarProperty Name="Apellido_Chofer" ColumnName="Apellido_Chofer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estado">
+      <EntityTypeMapping TypeName="DomivaModel.estado">
+        <MappingFragment StoreEntitySet="estado">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="nombre_estado" ColumnName="nombre_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estado_ambulancia">
+      <EntityTypeMapping TypeName="DomivaModel.estado_ambulancia">
+        <MappingFragment StoreEntitySet="estado_ambulancia">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="Descripsion" ColumnName="Descripsion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="insumos">
+      <EntityTypeMapping TypeName="DomivaModel.insumos">
+        <MappingFragment StoreEntitySet="insumos">
+          <ScalarProperty Name="Id_insumos" ColumnName="Id_insumos" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="insumos_ambulancia">
+      <EntityTypeMapping TypeName="DomivaModel.insumos_ambulancia">
+        <MappingFragment StoreEntitySet="insumos_ambulancia">
+          <ScalarProperty Name="id_insumo_ambulancia" ColumnName="id_insumo_ambulancia" />
+          <ScalarProperty Name="id_insumos" ColumnName="id_insumos" />
+          <ScalarProperty Name="id_ambulancia" ColumnName="id_ambulancia" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="persona_centro">
+      <EntityTypeMapping TypeName="DomivaModel.persona_centro">
+        <MappingFragment StoreEntitySet="persona_centro">
+          <ScalarProperty Name="id_p_c" ColumnName="id_p_c" />
+          <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+          <ScalarProperty Name="id_centro" ColumnName="id_centro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personal">
+      <EntityTypeMapping TypeName="DomivaModel.Personal">
+        <MappingFragment StoreEntitySet="Personal">
+          <ScalarProperty Name="Id_personal" ColumnName="Id_personal" />
+          <ScalarProperty Name="Rut_personal" ColumnName="Rut_personal" />
+          <ScalarProperty Name="Nombre_personal" ColumnName="Nombre_personal" />
+          <ScalarProperty Name="Apellido_perso" ColumnName="Apellido_perso" />
+          <ScalarProperty Name="numero_telefonico" ColumnName="numero_telefonico" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="afp" ColumnName="afp" />
+          <ScalarProperty Name="salud" ColumnName="salud" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="id_centro" ColumnName="id_centro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personal_ambulancia">
+      <EntityTypeMapping TypeName="DomivaModel.personal_ambulancia">
+        <MappingFragment StoreEntitySet="personal_ambulancia">
+          <ScalarProperty Name="id_p_a" ColumnName="id_p_a" />
+          <ScalarProperty Name="id_ambulancia" ColumnName="id_ambulancia" />
+          <ScalarProperty Name="id_personal" ColumnName="id_personal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personal_correo">
+      <EntityTypeMapping TypeName="DomivaModel.personal_correo">
+        <MappingFragment StoreEntitySet="personal_correo">
+          <ScalarProperty Name="id_p_co" ColumnName="id_p_co" />
+          <ScalarProperty Name="id_personal" ColumnName="id_personal" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personas">
+      <EntityTypeMapping TypeName="DomivaModel.Personas">
+        <MappingFragment StoreEntitySet="Personas">
+          <ScalarProperty Name="Id_personas" ColumnName="Id_personas" />
+          <ScalarProperty Name="Rut" ColumnName="Rut" />
+          <ScalarProperty Name="n_documento" ColumnName="n_documento" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="numero_telefono" ColumnName="numero_telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="id_cuidad" ColumnName="id_cuidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salud">
+      <EntityTypeMapping TypeName="DomivaModel.salud">
+        <MappingFragment StoreEntitySet="salud">
+          <ScalarProperty Name="id_salud" ColumnName="id_salud" />
+          <ScalarProperty Name="id_nombre" ColumnName="id_nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitud_ambulancia">
+      <EntityTypeMapping TypeName="DomivaModel.Solicitud_ambulancia">
+        <MappingFragment StoreEntitySet="Solicitud_ambulancia">
+          <ScalarProperty Name="id_asistencia" ColumnName="id_asistencia" />
+          <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+          <ScalarProperty Name="id_ambulancia" ColumnName="id_ambulancia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitud_estado">
+      <EntityTypeMapping TypeName="DomivaModel.Solicitud_estado">
+        <MappingFragment StoreEntitySet="Solicitud_estado">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Id_solicitud" ColumnName="Id_solicitud" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitudes">
+      <EntityTypeMapping TypeName="DomivaModel.Solicitudes">
+        <MappingFragment StoreEntitySet="Solicitudes">
+          <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+          <ScalarProperty Name="Id_personas" ColumnName="Id_personas" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="Coordenada" ColumnName="Coordenada" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DomivaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="turno">
+      <EntityTypeMapping TypeName="DomivaModel.turno">
+        <MappingFragment StoreEntitySet="turno">
+          <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+          <ScalarProperty Name="nombre_turno" ColumnName="nombre_turno" />
+          <ScalarProperty Name="Hora_entrada" ColumnName="Hora_entrada" />
+          <ScalarProperty Name="Hora_salida" ColumnName="Hora_salida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="turno_chofer">
+      <EntityTypeMapping TypeName="DomivaModel.turno_chofer">
+        <MappingFragment StoreEntitySet="turno_chofer">
+          <ScalarProperty Name="id_turno_chofer" ColumnName="id_turno_chofer" />
+          <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+          <ScalarProperty Name="id_chofer" ColumnName="id_chofer" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="turno_personal">
+      <EntityTypeMapping TypeName="DomivaModel.turno_personal">
+        <MappingFragment StoreEntitySet="turno_personal">
+          <ScalarProperty Name="id_turno_personal" ColumnName="id_turno_personal" />
+          <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+          <ScalarProperty Name="id_personal" ColumnName="id_personal" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="DomivaModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

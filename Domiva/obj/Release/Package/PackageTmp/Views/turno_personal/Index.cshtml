@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Domiva.Models.turno_personal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <input type="button" value="Asignar Turno" class="btn btn-primary btn-lg active" onclick="location.href='@Url.Action("Create")'" />
+
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personal.Nombre_personal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personal.Apellido_perso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.turno.nombre_turno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personal.Nombre_personal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personal.Apellido_perso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.turno.nombre_turno)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id_turno_personal }) |
+            @Html.ActionLink("Detalle", "Details", new { id = item.id_turno_personal }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id_turno_personal })
+        </td>
+    </tr>
+}
+
+</table>

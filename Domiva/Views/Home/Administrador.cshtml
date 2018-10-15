@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Administrador";
+}
+
+
+
+<h2>Administrador</h2>
+<div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-danger">Turnos</button>
+
+        <button type="button" class="btn btn-danger dropdown-toggle"
+                data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Desplegar menú</span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="@Url.Action("index", "turnoes")"> Crear Turnos</a></li>
+            <li class="divider"></li>
+            <li><a href="@Url.Action("index", "turno_personal")">Turnos Personal</a></li>
+            <li class="divider"></li>
+            <li><a href="@Url.Action("index", "turno_chofer")">Turnos Choferes</a></li>
+
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-danger">Personal</button>
+
+        <button type="button" class="btn btn-danger dropdown-toggle"
+                data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Desplegar menú</span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="@Url.Action("index", "turnoes")">Choferes</a></li>
+            <li class="divider"></li>
+            <li><a href="@Url.Action("index", "turno_personal")">Personal</a></li>
+            <li class="divider"></li>
+
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-danger">Personal</button>
+
+        <button type="button" class="btn btn-danger dropdown-toggle"
+                data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Desplegar menú</span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="@Url.Action("index", "turnoes")">Choferes</a></li>
+            <li class="divider"></li>
+            <li><a href="@Url.Action("index", "turno_personal")">Personal</a></li>
+            <li class="divider"></li>
+
+        </ul>
+    </div>
+
+</div>
+
+
+
+<div class="col-md-4">
+    <dl>
+
+        <dd>
+
+            <input type="button" value="Turnos" class="btn btn-primary btn-lg active" onclick="location.href='@Url.Action("index", "turnoes")'" />
+        </dd>
+    </dl>
+</div>
+<div class="col-md-4">
+    <dl>
+
+        <dd>
+            <input type="button" value="Personal" class="btn btn-primary btn-lg active" onclick="location.href='@Url.Action("index", "Personals")'" />
+
+        </dd>
+    </dl>
+</div>
+<div class="col-md-4">
+    <dl>
+
+        <dd>
+            <input type="button" value="Choferes" class="btn btn-primary btn-lg active" onclick="location.href='@Url.Action("index","Choferes")'" />
+        </dd>
+    </dl>
+</div>
+<div class="col-md-4">
+    <dl>
+
+        <dd>
+            <input type="button" value="Insumos" class="btn btn-primary btn-lg active" onclick="location.href='@Url.Action("index","Insumos")'" />
+
+        </dd>
+    </dl>
+</div>
+
+<div class="col-md-4">
+    <dl>
+
+        <dd>
+            <input type="button" value="Ambulancias" class="btn btn-primary btn-lg active" onclick="location.href='@Url.Action("index", "Ambulancias")'" />
+
+        </dd>
+    </dl>
+</div>
+<div class="col-md-4">
+    <dl>
+
+        <dd>
+            <input type="button" value="correos personal" class="btn btn-primary btn-lg active" onclick="location.href='@Url.Action("index","personal_correo")'" />
+
+        </dd>
+    </dl>
+</div>
+
+<div class="col-md-4">
+    <dl>
+
+        <dd>
+            <input type="button" value="Cargos" class="btn btn-primary btn-lg active" onclick="location.href='@Url.Action("index","RolesAdmin")'" />
+
+        </dd>
+    </dl>
+</div>
+<div class="col-md-4">
+    <dl>
+
+        <dd>
+            <input type="button" value="Asignar cargos" class="btn btn-primary btn-lg active" onclick="location.href='@Url.Action("index","UsersAdmin")'" />
+
+        </dd>
+    </dl>
+</div>
+<div>
+
+</div>
+
+
